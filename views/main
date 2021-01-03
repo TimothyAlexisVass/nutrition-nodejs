@@ -1,0 +1,622 @@
+<h1>Nutrient insights</h1>
+
+<form name="inputForm" id="inputForm" action="index.php" method="post" autocomplete="off" onsubmit="return validateForm()">
+    <table width="100%" style="font-size: 22px; text-shadow: none;"><tbody>
+        <tr>
+            <th colspan="2">
+                <select style="font-size: 20px; text-align: center" name="gender">
+                    <option value="1.25" selected>Male</option>
+                    <option value="1" >Female</option>
+                </select>
+            </th>
+            <th colspan="2">
+                Activity: <select style="font-size: 20px; text-align: center" name="activityLevel">
+                    <option value="1" >Sedentary</option>
+                    <option value="1.12" selected>Active</option>
+                    <option value="1.2" >Lively</option>
+                    <option value="1.28" >Vibrant</option>
+                </select>
+            </th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="text" style="width: 40%; text-align: right;" name="weight" value="84" /><span style="width: 40%; display: inline-block; text-align: left;">&nbsp;kg</span>
+            </td>
+            <td colspan="2">
+                <input type="text" style="width: 40%; text-align: right;" name="age" value="38" /><span style="width: 40%; display: inline-block; text-align: left;">&nbsp;years</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="position:relative">
+                <input type="text" name="foodItem" id="foodItem" placeholder="Add food item" />
+                <ul hidden id="foodItemsList" class="autoselect-list"><ul>
+                </td>
+                <td width="120px">
+                    <input type="text" style="width: 60%; text-align: right;" name="amount" value="100" /><span style="width: 20%; display: inline-block; text-align: left;">&nbsp;g</span>
+                </td>
+            </tr>
+        </tbody></table>
+        <center>
+            <input disabled id="foodItemAdd" type="submit" name="add" value="ADD" />
+        </center>
+    </form>
+    <h1>Items</h1>
+    <div class='wrapper'>
+        <table width='100%'><thead>
+            <tr>
+                <th class='left'>Total</th>
+                <th class='right'>750 g</th>
+                <th class='right'>808 kcal</th>
+                <th class='right'>3381 kJ</th>
+            </tr>
+        </thead><tbody>
+            <tr>
+                <td class='left'><form class='left' action='index.php' method='post'><input type='hidden' name='foodItem' value='Ananas' /><input type='submit' class='x-button' name='clearItem' value='X ' /></form>  Ananas</td>
+                <td class='right'>100 g</td>
+                <td class='right'>52 kcal</td>
+                <td class='right'>218 kJ</td>
+            </tr>
+            <tr>
+                <td class='left'><form class='left' action='index.php' method='post'><input type='hidden' name='foodItem' value='Chiafrö' /><input type='submit' class='x-button' name='clearItem' value='X ' /></form>  Chiafrö</td>
+                <td class='right'>20 g</td>
+                <td class='right'>89.6 kcal</td>
+                <td class='right'>375 kJ</td>
+            </tr>
+            <tr>
+                <td class='left'><form class='left' action='index.php' method='post'><input type='hidden' name='foodItem' value='Kiwi grön' /><input type='submit' class='x-button' name='clearItem' value='X ' /></form>  Kiwi grön</td>
+                <td class='right'>130 g</td>
+                <td class='right'>71.5 kcal</td>
+                <td class='right'>299 kJ</td>
+            </tr>
+            <tr>
+                <td class='left'><form class='left' action='index.php' method='post'><input type='hidden' name='foodItem' value='Paprika gul' /><input type='submit' class='x-button' name='clearItem' value='X ' /></form>  Paprika gul</td>
+                <td class='right'>150 g</td>
+                <td class='right'>36 kcal</td>
+                <td class='right'>151 kJ</td>
+            </tr>
+            <tr>
+                <td class='left'><form class='left' action='index.php' method='post'><input type='hidden' name='foodItem' value='Potatis kokt utan salt' /><input type='submit' class='x-button' name='clearItem' value='X ' /></form>  Potatis kokt utan salt</td>
+                <td class='right'>300 g</td>
+                <td class='right'>249 kcal</td>
+                <td class='right'>1042 kJ</td>
+            </tr>
+            <tr>
+                <td class='left'><form class='left' action='index.php' method='post'><input type='hidden' name='foodItem' value='Solrosfrö' /><input type='submit' class='x-button' name='clearItem' value='X ' /></form>  Solrosfrö</td>
+                <td class='right'>50 g</td>
+                <td class='right'>309 kcal</td>
+                <td class='right'>1293 kJ</td>
+            </tr>
+        </tbody></table>
+        <form class="center" action="index.php" method="post"><input type="submit" name="clear" value="CLEAR" /></form>
+    </div>
+    <h1>Nutritional Balancing</h1>
+    <div class='wrapper'>
+     <h2>Energy Distribution%</h2>
+     <div class='distribution-labels'>
+        <div class='right distribution-label'><span style='font-size: 140%; color: var(--Carbohydrates)'>&#9679;</span> Carbohydrates: <span class='bold' style='color: var(--Carbohydrates)'>42.7%</span></div>
+        <div class='center distribution-label'><span style='font-size: 140%; color: var(--Fat)'>&#9679;</span> Fat: <span class='bold' style='color: var(--Fat)'>40.5%</span></div>
+        <div class='center distribution-label'><span style='font-size: 140%; color: var(--Protein)'>&#9679;</span> Protein: <span class='bold' style='color: var(--Protein)'>10.9%</span></div>
+        <div class='right distribution-label'><span style='font-size: 140%; color: var(--Fiber)'>&#9679;</span> Fiber: <span class='bold' style='color: var(--Fiber)'>5.9%</span></div>
+    </div>
+    <table style='width: 100%; font-size: 16px;'><tbody>
+        <tr>
+            <th style='padding: 20px 0; background-color: var(--Carbohydrates); width: 42.7%'></th>
+            <th style='padding: 20px 0; background-color: var(--Fat); width: 40.5%'></th>
+            <th style='padding: 20px 0; background-color: var(--Protein); width: 10.9%'></th>
+            <th style='padding: 20px 0; background-color: var(--Fiber); width: 5.9%'></th>
+        </tr>
+        <tr>
+            <td class='bold' style='width: 42.7%'></td>
+            <td class='bold' style='width: 40.5%'></td>
+            <td class='bold' style='width: 10.9%'></td>
+            <td class='bold' style='width: 5.9%'></td>
+        </tr>
+    </tbody></table>
+    <br>
+    <table style='width: 100%; font-size: 16px;'><tbody>
+        <tr>
+            <th class='right' style='padding: 10px 0; background-color: var(--Carbohydrates); width: 50%'>Recomm</th>
+            <th class='left' style='padding: 10px 0; background-color: var(--Fat); width: 30.5%'>endation</th>
+            <th style='padding: 10px 0; background-color: var(--Protein); width: 12.5%'></th>
+            <th style='padding: 10px 0; background-color: var(--Fiber); width: 7%'></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody></table>
+    <h2>Omega 6:3 Ratio</h2>
+    <br>
+    <table style='width: 100%; font-size: 16px;'><tbody>
+        <tr>
+            <th style='padding: 10px 0; background-color: var(--Protein); width: 79.1%'>Omega 6</th>
+        </tr>
+        <tr>
+            <td>79.1%</td>
+        </tr>
+    </tbody></table>
+    <br>
+    <table style='width: 100%; font-size: 16px;'><tbody>
+        <tr>
+            <th class='right' style='padding: 10px 8.5%; background-color: var(--Protein); width: 66.7%'>Recommended ratio</th>
+            <th class='left' style='padding: 10px 0; background-color: var(--Fiber); width: 33.3%'></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody></table>
+</div>
+<br><br>
+<table width='100%' class='estimates-table'><tbody>
+ <tr>
+    <th colspan='7' class='xx-large bold'>Micronutrient Estimates</th>
+</tr>
+<tr class='large bold'><td style='width:8px; padding: 0;'></td><td colspan='3' class='left extra-thick-bottom-border'>Total amount eaten</td><td colspan='2' class='right extra-thick-bottom-border'>750 g</td><td style='width:8px; padding: 0;'></td></tr>
+<tr class='small bold'><td style='width:8px; padding: 0;'></td><td class='left'>Totals for all food items</td><td class='right'>Requirement</td><td colspan='3' class='right'>Intake</td><td style='width:8px; padding: 0;'></td></tr>
+<tr class='xx-large bold'><td style='width:8px; padding: 0;'></td><td class='left thick-bottom-border' style='padding: 0;'>Energy</td><td class='right thick-bottom-border' style='padding: 0;'>2800 kcal</td><td colspan='3' class='right thick-bottom-border' style='padding: 0;'>808 kcal</td><td style='width:8px; padding: 0;'></td></tr>
+<tr class='medium bold'>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Nutrient</td>
+    <td class='right thin-bottom-border thin-right-border'>Requirement</td>
+    <td colspan='2' class='thin-bottom-border thin-right-border shaded'>Intake</td>
+    <td class='right thin-bottom-border'>Limit</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Vitamin A<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Vitamin_A");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeVitamin_A' class='recommendation-close' onclick='showhide("Vitamin_A");return false;'>X</button><iframe id='Vitamin_A' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=902&field=Vitamin A'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>937 RE</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>35 RE</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>4 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>3514 RE</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Vitamin B6</td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>1.4 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>1.4 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>100 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>100 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Vitamin B12<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Vitamin_B12");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeVitamin_B12' class='recommendation-close' onclick='showhide("Vitamin_B12");return false;'>X</button><iframe id='Vitamin_B12' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=2.5&field=Vitamin B12'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>2.5 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>0 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>0 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>- µg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Vitamin C</td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>94 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>442 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>470 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>2350 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Vitamin D<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Vitamin_D");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeVitamin_D' class='recommendation-close' onclick='showhide("Vitamin_D");return false;'>X</button><iframe id='Vitamin_D' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=16.4&field=Vitamin D'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>16.4 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>0 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>0 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>164 µg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Vitamin E</td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>12 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>26 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>217 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>300 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Vitamin K<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Vitamin_K");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeVitamin_K' class='recommendation-close' onclick='showhide("Vitamin_K");return false;'>X</button><iframe id='Vitamin_K' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=39&field=Vitamin K'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>105 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>66 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>63 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>- µg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Thiamine<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Thiamine");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeThiamine' class='recommendation-close' onclick='showhide("Thiamine");return false;'>X</button><iframe id='Thiamine' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=0.4&field=Thiamine'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>1.4 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>1 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>71 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>- mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Riboflavin<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Riboflavin");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeRiboflavin' class='recommendation-close' onclick='showhide("Riboflavin");return false;'>X</button><iframe id='Riboflavin' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=1.4&field=Riboflavin'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>1.6 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>0.2 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>13 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>- mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Niacin Equivalents<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Niacin_Equivalents");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeNiacin_Equivalents' class='recommendation-close' onclick='showhide("Niacin_Equivalents");return false;'>X</button><iframe id='Niacin_Equivalents' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=5.7&field=Niacin Equivalents'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>19 NE</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>13.3 NE</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>70 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>35 NE</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Folate<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Folate");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeFolate' class='recommendation-close' onclick='showhide("Folate");return false;'>X</button><iframe id='Folate' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=260&field=Folate'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>527 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>267 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>51 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>1757 µg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Phosphorus<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Phosphorus");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closePhosphorus' class='recommendation-close' onclick='showhide("Phosphorus");return false;'>X</button><iframe id='Phosphorus' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=274&field=Phosphorus'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>937 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>663 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>71 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>4016 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Iodine<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Iodine");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeIodine' class='recommendation-close' onclick='showhide("Iodine");return false;'>X</button><iframe id='Iodine' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=174&field=Iodine'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>199 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>25 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>13 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>1459 µg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Iron<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Iron");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeIron' class='recommendation-close' onclick='showhide("Iron");return false;'>X</button><iframe id='Iron' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=11.9&field=Iron'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>18.7 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>6.8 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>36 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>80 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Calcium<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Calcium");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeCalcium' class='recommendation-close' onclick='showhide("Calcium");return false;'>X</button><iframe id='Calcium' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=921&field=Calcium'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>1172 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>251 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>21 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>3663 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Potassium<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Potassium");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closePotassium' class='recommendation-close' onclick='showhide("Potassium");return false;'>X</button><iframe id='Potassium' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=1945&field=Potassium'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>4100 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>2155 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>53 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>- mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Copper</td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>1.2 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>1.8 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>150 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>6 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Magnesium<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Magnesium");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeMagnesium' class='recommendation-close' onclick='showhide("Magnesium");return false;'>X</button><iframe id='Magnesium' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=53&field=Magnesium'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>375 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>322 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>86 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>3500 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Sodium</td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>10 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+    <td class='right thin-bottom-border' style='width:90px'>2400 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Selenium<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Selenium");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeSelenium' class='recommendation-close' onclick='showhide("Selenium");return false;'>X</button><iframe id='Selenium' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=52.9&field=Selenium'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>67 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>14.1 µg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>21 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>447 µg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+<tr>
+    <td style='width:8px; padding: 0;'></td>
+    <td class='left thin-bottom-border'>Zinc<a target='_blank' rel='noopener noreferrer' href='#' onclick='showhide("Zinc");return false;' style='display:inline;color: #afa;'> &#11014;</a> <button id='closeZinc' class='recommendation-close' onclick='showhide("Zinc");return false;'>X</button><iframe id='Zinc' class='recommendation' src='http://www.freealization.com/nutrition/top30.php?amount=8.3&field=Zinc'></iframe></td>
+    <td class='right thin-bottom-border thin-right-border' style='width:248px;'>14.1 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>5.8 mg</td>
+    <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>41 %</td>
+    <td class='right thin-bottom-border' style='width:90px'>43 mg</td>
+    <td style='width:8px; padding: 0;'></td>
+</tr>
+</tbody></table>
+<script>
+    function showhide(id) {
+        var e = document.getElementById(id);
+        e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+        e = document.getElementById('close' + id);
+        e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+    }
+</script>
+<br>
+<table width='100%' class='estimates-table'><tbody>
+    <tr>
+        <th colspan='7' class='xx-large bold'>Macronutrient Estimates</th>
+    </tr>
+    <tr class='medium bold'>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left thin-bottom-border'>Nutrient</td>
+        <td class='right thin-bottom-border thin-right-border'>Requirement</td>
+        <td colspan='2' class='thin-bottom-border thin-right-border shaded'>Intake</td>
+        <td class='right thin-bottom-border'>Limit</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left bold thin-bottom-border'>Water</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>3998 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>573 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>14 %</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left bold thin-bottom-border'>Salt</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>6 g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left bold thin-bottom-border'>Cholesterol</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- mg</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0 mg</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- mg</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left bold thin-bottom-border'>Carbohydrates</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>344.8 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>85 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>25 %</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Monosaccharides</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>25 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Sucrose</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>8.2 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Other Disaccharides</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0.3 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Starch</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>46 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left bold thin-bottom-border'>Fat</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>101.4 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>37 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>36 %</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left bold thin-bottom-border'>Saturated</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>3.1 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>31.7 g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Fatty acids C4:0-10:0</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Lauric acid C12:0</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Myristic acid C14:0</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Palmitic acid C16:0</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>1.9 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Stearic acid C18:0</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>1 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Arachidic acid C20:0</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0.1 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left bold thin-bottom-border'>Monounsaturated</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>9.6 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Palmitoic acid C16:1</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Oleic acid C18:1</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>9.6 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left bold thin-bottom-border'>Polyunsaturated</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>21 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Linoleic acid C18:2</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>16.9 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Arachidonic acid C20:4</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;Linolenic acid C18:3</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>3.17 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>4.5 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>142 %</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;EPA</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;DPA</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>- g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>0 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #afa;'>-</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left  thin-bottom-border'>&nbsp;&nbsp;DHA</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>0.2 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>0 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>0 %</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+    <tr>
+        <td style='width:8px; padding: 0;'></td>
+        <td class='left bold thin-bottom-border'>Protein</td>
+        <td class='right thin-bottom-border thin-right-border' style='width:248px;'>88.6 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px;color: var(--background);'>22 g</td>
+        <td class='right thin-bottom-border thin-right-border bold shaded' style='width:74px; color: #fcc;'>25 %</td>
+        <td class='right thin-bottom-border' style='width:90px'>- g</td>
+        <td style='width:8px; padding: 0;'></td>
+    </tr>
+</tbody></table>
